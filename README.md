@@ -1,31 +1,63 @@
-# Docker Challenge 2022
+# Docker Challenge 2023
 
-## Create and Build a Docker image for frontend and backend apps
+## Create and build a Docker image for the backend app
 
-1. Analyse the `meme-reviewer-backend` application and try to create and build a simple docker image
+1. Analyse the `meme-reviewer-backend` application and try to create a Dockerfile.
 
-2. Run a container using the previously created docker image
+2. Build the image with the tag `mr-backend:latest`.
 
-3. Using a REST cli/tool, send a GET request to the app using the following URL: `http://localhost:5000/api/meme`. It should return a status code of 200 (Success)
+3. Run a container using the backend docker image.
 
-4. Repeat the process for the `meme-reviewer-frontend` (Steps 1 and 2). 
-    * Note: The frontend image should derive from the `node:node:16.14.0-alpine`.
+3. Using a REST CLI/tool or your browser, send a GET request to the app using the following URL: [`http://localhost:5000/api/meme`](http://localhost:5000/api/meme). It should return a status code of 200 (Success) with a JSON response body.
 
-5. Run the two applications and check if the frontend is communicating with the backend successfully
+## Create and build a Docker image for the frontend app
 
-6. The created docker images should not include some files/folders like `node_modules`, `__pycache__`, etc. How can you ignore them when building an image?
+1. Analyse the `meme-reviewer-frontend` application and try to create a Dockerfile.
 
-## Managing containers using a docker-compose.yml
+2. Build the image with the tag `mr-frontend:latest`.
 
-1. In the root of the repository create a file named `docker-compose.yml`. Try to create a service for backend first and test it.
+3. Run a container using the frontend docker image.
 
-2.  After the backend is up and running try to run the frontend.
+4. Check if the two containers are running.
 
-3. How can you pass a different backend URL to the application using the Docker CLI (e.g. docker run)? And using the `docker-compose.yml`?
+5. The two applications are running in containers. They should be able to communicate successfully. Go to the frontend ([`http://localhost:3000`](http://localhost:3000)) and interact with the website a bit.
 
-## Optimizing build process and size of Docker images
+6. Cleanup your containers using the `docker rm` command.
 
-1. Try to optimize the frontend image now deriving it from the `nginx:latest` image. 
-    * Tip 1: `npm start` does not build the application right?
-    * Tip 2: How about multistage builds?
+## Optimising build process and size of Docker images
 
+1. Check the size of the two Docker images.
+
+2. There are many ways of optimising images. What changes will you do to your backend Dockerfile to ensure images have the lowest size possible? After modifying the Dockerfile, build the image again.
+
+3. And to your frontend Dockerfile? After modifying the Dockerfile, build the image again.
+
+4. Check the size of the two Docker images and compare with the previous output in step 1.
+
+## Managing multiple containers with Docker Compose 
+
+1. In the root of the repository create a file named `docker-compose.yml`. Try to create a service for the backend and test it.
+
+2. Use `docker-compose` command to create and run the backend container.
+
+3.  After the backend is up and running try to create another service for the frontend.
+
+4. Use `docker-compose` command to create and run the frontend container.
+
+## Publishing Docker images to a registry
+
+1. Go to [https://portal.azure.com](https://portal.azure.com) or if you're feeling cocky, login instead with the Azure CLI. You can do it by typing `az login`.
+
+2. Create a resource group with the following notation: `rg-dc2023-<your_name>`.
+
+3. Create an Azure Container Registry (ACR) with the following notation `dc2023<your_initials>`.
+
+4. Publish the previously built Docker images in the registry.
+
+## Deploy containers to an app service
+
+1. Create a web app for the backend in Azure using the portal or the CLI. See if you can select a Docker image from your registry for the web app.
+
+2. Now, do it for the frontend. Do not forget about environment variables for a successful communication!
+
+3. Test your deployed applications.

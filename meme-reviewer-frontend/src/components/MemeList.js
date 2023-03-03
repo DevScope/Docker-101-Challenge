@@ -34,7 +34,6 @@ export const MemeList = () => {
     }
 
     function onImageUpload(e) {
-        e.preventDefault()
         const formData = new FormData();
         formData.append('name', name);
         formData.append('year', year);
@@ -46,7 +45,7 @@ export const MemeList = () => {
         setName('');
         setYear('');
         setImage(null);
-        axios.post(`http://${host}:${port}/api/meme`, formData);
+        axios.post(`${backendUrl}/api/meme`, formData);
     }
 
     return (
