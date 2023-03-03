@@ -10,6 +10,7 @@ export const MemeList = () => {
     const [year, setYear] = useState('');
     const [memes, setMemes] = useState([]);
     const [image, setImage] = useState(null);
+    const imageInputRef = React.useRef();
 
     useEffect(() => {
         const asyncCallback = async () => {
@@ -19,7 +20,7 @@ export const MemeList = () => {
 
         let data = asyncCallback();
         data.then(info => setMemes(info))
-    }, [name, year, image]);
+    }, [image]);
 
     function onNameChange(event) {
         setName(event.target.value)
@@ -44,6 +45,7 @@ export const MemeList = () => {
 
         setName('');
         setYear('');
+        imageInputRef.current.value = "";
         setImage(null);
         axios.post(`${backendUrl}/api/meme`, formData);
     }
@@ -59,11 +61,11 @@ export const MemeList = () => {
             <div style={{ 'display': 'block', 'paddingTop': '0.5cm', 'paddingLeft': '0.5cm', 'width': '30%' }}>
                 {/* <label class="form-label" for="customFile">Upload your meme!</label> */}
                 <label class="form-label" for="customName">Name</label>
-                <input type="text" class="form-control" id="name" name="name" onChange={onNameChange} />
+                <input type="text" class="form-control" id="name" name="name" value={name} onChange={onNameChange} />
                 <label class="form-label" for="customYear">Year</label>
-                <input type="text" class="form-control" id="year" name="year" onChange={onYearChange} />
+                <input type="text" class="form-control" id="year" name="year" value={year} onChange={onYearChange} />
                 <div class="input-group mb-3" style={{ 'paddingTop': '0.5cm'}}>
-                    <input type="file" class="form-control" id="customFile" name="image" onChange={onImageChange} />
+                    <input type="file" ref={imageInputRef} class="form-control" id="customFile" name="image" onChange={onImageChange} />
                     <div class="input-group-append" style={{ 'paddingLeft': '0.2cm' }}>
                         <button class="btn btn-primary" type="submit" onClick={onImageUpload}>Submit</button>
                     </div>
