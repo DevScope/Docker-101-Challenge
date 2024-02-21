@@ -1,4 +1,4 @@
-# Docker Challenge 2023
+# Docker Challenge
 
 ## Create and build a Docker image for the backend app
 
