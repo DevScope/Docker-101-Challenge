@@ -1,6 +1,6 @@
 # Docker Challenge
 
-## Create and build a Docker image for the backend app
+## Ex.1 - Create and build a Docker image for the backend app
 
 1. Analyse the `meme-reviewer-backend` application and try to create a Dockerfile.
 
@@ -10,7 +10,7 @@
 
 3. Using a REST CLI/tool or your browser, send a GET request to the app using the following URL: [`http://localhost:5000/api/meme`](http://localhost:5000/api/meme). It should return a status code of 200 (Success) with a JSON response body.
 
-## Create and build a Docker image for the frontend app
+## Ex.2 - Create and build a Docker image for the frontend app
 
 1. Analyse the `meme-reviewer-frontend` application and try to create a Dockerfile.
 
@@ -24,7 +24,7 @@
 
 6. Cleanup your containers using the `docker rm` command.
 
-## Optimising build process and size of Docker images
+## Ex.3 - Optimising build process and size of Docker images
 
 1. Check the size of the two Docker images.
 
@@ -34,7 +34,7 @@
 
 4. Check the size of the two Docker images and compare with the previous output in step 1.
 
-## Managing multiple containers with Docker Compose 
+## Ex.4 - Managing multiple containers with Docker Compose 
 
 1. In the root of the repository create a file named `docker-compose.yml`. Try to create a service for the backend and test it.
 
@@ -44,7 +44,7 @@
 
 4. Use `docker-compose` command to create and run the frontend container.
 
-## Publishing Docker images to a registry
+## Ex.5 - Publishing Docker images to a registry
 
 1. Go to [https://portal.azure.com](https://portal.azure.com) or if you're feeling cocky, login instead with the Azure CLI. You can do it by typing `az login`.
 
@@ -54,7 +54,7 @@
 
 4. Publish the previously built Docker images in the registry.
 
-## Deploy containers to an app service
+## Ex.6 - Deploy containers to an app service
 
 1. Create a web app for the backend in Azure using the portal or the CLI. See if you can select a Docker image from your registry for the web app.
 
