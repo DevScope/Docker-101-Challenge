@@ -48,9 +48,9 @@
 
 1. Go to [https://portal.azure.com](https://portal.azure.com) or if you're feeling cocky, login instead with the Azure CLI. You can do it by typing `az login`.
 
-2. Create a resource group with the following notation: `rg-dc2023-<your_name>`.
+2. Create a resource group with the following notation: `rg-dc<year>-<your_name>`.
 
-3. Create an Azure Container Registry (ACR) with the following notation `dc2023<your_initials>`.
+3. Create an Azure Container Registry (ACR) with the following notation `dc<year><your_initials>`.
 
 4. Publish the previously built Docker images in the registry.
 
